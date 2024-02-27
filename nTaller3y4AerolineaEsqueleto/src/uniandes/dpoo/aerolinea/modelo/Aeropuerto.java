@@ -18,8 +18,8 @@ public class Aeropuerto
 	private String nombreCiudad;
 	private double latitud;
 	private double longitud;
-	private static HashMap<String, Set<String>> codigosUtiizados;
-	private static int RADIO_TERRESTRE= 6371;
+	private static  HashMap<String, Set<String>> codigosUtiizados;
+	private static final  int RADIO_TERRESTRE= 6371;
 	
 	
 	public Aeropuerto(String nombre, String codigo, String nombreCiudad, double latitud, double longitud) {

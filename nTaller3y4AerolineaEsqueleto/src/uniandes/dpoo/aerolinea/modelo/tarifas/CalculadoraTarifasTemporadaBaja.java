@@ -5,10 +5,10 @@ import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
 
 public class CalculadoraTarifasTemporadaBaja extends CalculadoraTarifas
 {
-	protected int COSTO_POR_KM_NATURAL=600;
-	protected int COSTO_POR_KM_CORPORATIVO=900;
-	protected double DESCUENTO_MEDIANAS=0.1;
-	protected double DESCUENTO_GRANDES=0.2;
+	protected  static final int COSTO_POR_KM_NATURAL=600;
+	protected static final int COSTO_POR_KM_CORPORATIVO=900;
+	protected static final double DESCUENTO_MEDIANAS=0.1;
+	protected static final double DESCUENTO_GRANDES=0.2;
 	
 	 @Override
 	    protected int calcularCostoBase(Vuelo vuelo, Cliente cliente) {

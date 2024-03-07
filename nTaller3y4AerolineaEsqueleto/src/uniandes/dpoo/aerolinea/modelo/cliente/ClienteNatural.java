@@ -12,13 +12,13 @@ public class ClienteNatural extends Cliente
 	 @Override
 	    public String getTipoCliente() 
 	 {
-	        return null;
+	        return NATURAL;
 	    }
 
 	 @Override
 	   public String getIdentificador()
 	 {
-	        return null; 
+	        return  nombre ; 
 	 }
 	
 

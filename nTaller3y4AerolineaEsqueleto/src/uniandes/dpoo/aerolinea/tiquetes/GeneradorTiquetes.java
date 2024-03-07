@@ -11,7 +11,7 @@ import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
  */
 public class GeneradorTiquetes
 {
-	private Set<String> codigos = new HashSet<>();
+	private static java.util.Set<java.lang.String> codigos = new HashSet<java.lang.String>();
 	
 	
     /**
@@ -50,7 +50,13 @@ public class GeneradorTiquetes
      */
     public static void registrarTiquete( Tiquete unTiquete )
     {
-        // TODO implementar
+    	java.lang.String codigoTiquete = unTiquete.getCodigo();
+
+        if (!codigos.contains(codigoTiquete))
+        {
+        	codigos.add(codigoTiquete);
+        }
+     
     }
 
     /**
@@ -60,7 +66,10 @@ public class GeneradorTiquetes
      */
     public static boolean validarTiquete( String codigoTiquete )
     {
-        // TODO implementar
-        return false;
+    	 if (!codigos.contains(codigoTiquete))
+         {
+         	return false;
+         }
+        return true;
     }
 }

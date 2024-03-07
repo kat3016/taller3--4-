@@ -5,9 +5,9 @@ package uniandes.dpoo.aerolinea.modelo;
  */
 public class Ruta
 {
-	private  String horaSalida;
-	private  String horaLlegada;
-	private  String codigoRuta;
+	private java.lang.String horaSalida;
+	private java.lang.String horaLlegada;
+	private java.lang.String codigoRuta;
 	public Aeropuerto destino;
 	public Aeropuerto origen;
 	
@@ -24,9 +24,9 @@ public class Ruta
      * 
      */
 
-	public Ruta(String horaSalida, String horaLlegada, String codigoRuta, Aeropuerto destino, Aeropuerto origen)
+	public Ruta(Aeropuerto origen,Aeropuerto destino, java.lang.String horaSalida, java.lang.String horaLlegada, java.lang.String codigoRuta)
 	{
-		super();
+		
 		this.horaSalida = horaSalida;
 		this.horaLlegada = horaLlegada;
 		this.codigoRuta = codigoRuta;
@@ -36,7 +36,7 @@ public class Ruta
     
 
     
-	public String getHoraSalida() {
+	public java.lang.String getHoraSalida() {
 		return horaSalida;
 	}
 
@@ -44,7 +44,7 @@ public class Ruta
 	
 
 
-	public String getHoraLlegada() {
+	public java.lang.String getHoraLlegada() {
 		return horaLlegada;
 	}
 
@@ -64,14 +64,22 @@ public class Ruta
 	
 	public int getDuracion()
 	{
-		return -1;
+		 int horasSalida = getHoras(horaSalida);
+		    int minutosSalida = getMinutos(horaSalida);
+		    
+		    int horasLlegada = getHoras(horaLlegada);
+		    int minutosLlegada = getMinutos(horaLlegada);
+		    
+		    int duracionEnMinutos = (horasLlegada * 60 + minutosLlegada) - (horasSalida * 60 + minutosSalida);
+		    
+		    return duracionEnMinutos;
 	}
 	
 	
 
 	
 
-	public static int getMinutos( String horaCompleta )
+	public static int getMinutos( String horaCompleta)
     {
         int minutos = Integer.parseInt( horaCompleta ) % 100;
         return minutos;
@@ -93,7 +101,7 @@ public class Ruta
 
 
 
-	public String getCodigoRuta() {
+	public java.lang.String getCodigoRuta() {
 		return codigoRuta;
 	}
 

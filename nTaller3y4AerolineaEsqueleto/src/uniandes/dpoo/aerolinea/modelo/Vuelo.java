@@ -1,23 +1,27 @@
 package uniandes.dpoo.aerolinea.modelo;
+import uniandes.dpoo.aerolinea.exceptions.VueloSobrevendidoException;
 import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
+
 import uniandes.dpoo.aerolinea.modelo.tarifas.CalculadoraTarifas;
 import uniandes.dpoo.aerolinea.tiquetes.Tiquete;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
+
 public class Vuelo {
 	
-	private String fecha;
+	private java.lang.String fecha;
 	private Ruta ruta;
 	private Avion avion;
-	private HashMap<String, Tiquete> tiquetes;
+	private java.util.Map<java.lang.String ,Tiquete> tiquetes;
 	
-	public Vuelo(Ruta ruta, String fecha, Avion avion)
+	public Vuelo(Ruta ruta, java.lang.String fecha, Avion avion)
 	
 	{
 		this.fecha =fecha;
 		this.ruta= ruta;
 		this.avion=avion;
-		this.tiquetes= new HashMap<String, Tiquete>();
+		
 				
 	}
 
@@ -27,7 +31,7 @@ public class Vuelo {
 		return this.getRuta();
 	}
 
-	public String getFecha() 
+	public java.lang.String getFecha() 
 	{
 		
 		return this.getFecha();
@@ -37,22 +41,37 @@ public class Vuelo {
 		return this.getAvion();
 	}
 
-	public HashMap<String, Tiquete> getTiquetes() {
+	
+	
+	public java.util.Map<java.lang.String, Tiquete> getTiquetes() {
 		return tiquetes;
 	}
+
 	
-	public int verderTiquetes(Cliente cliente, CalculadoraTarifas calculadora, int cantidad)
-	{
-		return -1;
+	
+	@Override
+	public boolean equals(Object obj) {
+	    return super.equals(obj);
 	}
-	
-	public boolean equals(Object obj)
+	public int verderTiquetes(Cliente cliente, CalculadoraTarifas calculadora, int cantidad) throws VueloSobrevendidoException
 	{
-		return true;
-	}
-	
-	
+		Avion avion=this.avion;
+		int capacidad= avion.getCapacidad();
+		int cantidadTiquetesVendidos= this.tiquetes.size();
+		int tiquetesDisponibles= capacidad- cantidadTiquetesVendidos;
+		if (cantidad<=  tiquetesDisponibles)
+		{
+			int tarifa = calculadora.calcularTarifa(this, cliente);
+			int total= tarifa*cantidad;
+			return total;
+		}
+		else
+		{
+			 throw new VueloSobrevendidoException(this);
+		}
 		
+		
+	}
 	
 	
 	

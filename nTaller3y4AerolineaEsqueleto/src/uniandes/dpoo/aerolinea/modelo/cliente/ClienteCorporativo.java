@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class ClienteCorporativo extends Cliente
 {
 	
-	public String CORPORATIVO="corporativo";
+	public static java.lang.String CORPORATIVO="corporativo";
 	public int GRANDE= 1;
 	public int MEDIANA=2 ;
 	public int PEQUENA= 3 ;
-	private  String nombreEmpresa;
+	private java.lang.String nombreEmpresa;
 	private int tamanoEmpresa;
     
-	  public ClienteCorporativo(String nombreEmpresa, int tamanoEmpresa) {
+	  public ClienteCorporativo(java.lang.String nombreEmpresa, int tamanoEmpresa) {
 			super();
 			this.nombreEmpresa = nombreEmpresa;
 			this.tamanoEmpresa = tamanoEmpresa;
@@ -25,9 +25,19 @@ public class ClienteCorporativo extends Cliente
     
 
 
-    public String getNombreEmpresa() {
+
+
+
+
+
+	public java.lang.String getNombreEmpresa() {
 		return nombreEmpresa;
 	}
+
+
+
+
+
 
 
 
@@ -39,13 +49,13 @@ public class ClienteCorporativo extends Cliente
 	 @Override
 	    public String getTipoCliente() 
 	 {
-	        return null;
+	        return CORPORATIVO;
 	    }
 
 	 @Override
 	   public String getIdentificador()
 	 {
-	        return null; 
+	        return nombreEmpresa; 
 	 }
 	 
 	

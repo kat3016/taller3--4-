@@ -2,24 +2,31 @@ package uniandes.dpoo.aerolinea.modelo;
 
 public class Avion 
 {
-	private String nombre;
+	private java.lang.String nombre;
 	private int capacidad;
+	public Avion(java.lang.String nombre, int capacidad) {
 	
-	public Avion(String nombre, int capacidad)
-	{
-		this.nombre=nombre;
-		this.capacidad=capacidad;
-		
+		this.nombre = nombre;
+		this.capacidad = capacidad;
 	}
-	 
-	public String getNombre()
-	{
-		return this.nombre;
+	public java.lang.String getNombre() {
+		return nombre;
 	}
-	public int getCapacidad()
-	{
-		return this.capacidad;
+	public int getCapacidad() {
+		return capacidad;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 
 }

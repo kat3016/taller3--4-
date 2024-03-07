@@ -1,6 +1,6 @@
 package uniandes.dpoo.aerolinea.modelo;
 
-import java.util.HashMap;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,17 +13,17 @@ import uniandes.dpoo.aerolinea.exceptions.AeropuertoDuplicadoException;
  */
 public class Aeropuerto
 {
-	private String nombre;
-	private String codigo;
-	private String nombreCiudad;
+	private java.lang.String nombre;
+	private java.lang.String codigo;
+	private java.lang.String nombreCiudad;
 	private double latitud;
 	private double longitud;
-	private static  HashMap<String, Set<String>> codigosUtiizados;
-	private static final  int RADIO_TERRESTRE= 6371;
+	private static java.util.Set<java.lang.String>codigosUtilizados = new HashSet<String>();
+	private static  int RADIO_TERRESTRE= 6371;
 	
 	
-	public Aeropuerto(String nombre, String codigo, String nombreCiudad, double latitud, double longitud) {
-		super();
+	public Aeropuerto(java.lang.String nombre, java.lang.String codigo,java.lang.String nombreCiudad, double latitud, double longitud) {
+		
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.nombreCiudad = nombreCiudad;
@@ -36,22 +36,20 @@ public class Aeropuerto
     // TODO completar
     
 
-    public String getNombre() {
+    public java.lang.String getNombre() {
 		return nombre;
 	}
 
 
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
-
-	public String getCodigo() {
+	public java.lang.String getCodigo() {
 		return codigo;
 	}
-
+	
+	public java.lang.String getNombreCiudad() {
+		return nombreCiudad;
+	}
+	
 
 
 	public double getLatitud() {
@@ -62,18 +60,6 @@ public class Aeropuerto
 
 	public double getLongitud() {
 		return longitud;
-	}
-
-
-
-	public static HashMap<String, Set<String>> getCodigosUtiizados() {
-		return codigosUtiizados;
-	}
-
-
-
-	public static int getRADIO_TERRESTRE() {
-		return RADIO_TERRESTRE;
 	}
 
 
